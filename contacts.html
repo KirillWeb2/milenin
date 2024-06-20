@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="topnav" id="myTopnav">
+            <a href="homescreen.html">Главная</a>
+            <a href="prices.html">Цены</a>
+            <a href="reviews.html">Отзывы</a>
+            <a href="contacts.html" class="active">Контакты</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+    </header>
+    
+    <main>
+        
+        <section>
+            <div class="description">
+                <h2>Контактная информация</h2>
+                <ul>
+                    <li>Адрес: г.Уссурийск ул.Ленинградская 47А</li>
+                    <li>Телефон: +7 (908) 961-79-30</li>
+                    <li>Email: imilenin2004@yandex.ru</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Записаться</h2>
+            <form action="#" method="post" id="contactForm">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" required></textarea>
+    
+                <input type="button" value="Отправить" id="submitButton">
+            </form>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById("submitButton").addEventListener("click", function() {
+            var name = document.getElementById("name").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var message = document.getElementById("message").value.trim();
+    
+            if (name === "" || email === "" || message === "") {
+                alert("Пожалуйста, заполните все поля формы.");
+                return;
+            }
+    
+            // Проверка валидности email
+            if (!validateEmail(email)) {
+                alert("Пожалуйста, введите корректный email.");
+                return;
+            }
+    
+            alert("Спасибо за то, что выбрали нас. В ближайшее время мы с вами свяжемся.");
+        });
+    
+        function validateEmail(email) {
+            var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9b23d7e62baccec6440f42f80ee942e2c458b24d304c15acf0b6ed7b66e060e6&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+
+    <footer>
+        <p>&copy; 2024 Сервис "Компьютерный Доктор". Все права защищены.</p>
+    </footer>
+</body>
+</html>
